@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONITORING</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px;
+        }
+        .chart-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .cpu-box {
+            background-color: #e3f5fb; /* Warna background CPU Chart */
+        }
+        .memory-box {
+            background-color: #f5dede; /* Warna background Memory Chart */
+        }
+        .disk-box {
+            background-color: #eee4f7; /* Warna background Disk Chart */
+        }
+        .battery-box {
+            background-color: #f4ebdd; /* Warna background Battery Chart */
+        }
+    </style>
+</head>
+<body>
+    <h1>MONITORING</h1>
+    <div class="chart-container">
+        <div class="chart-box cpu-box">
+            <canvas id="cpuChart" width="400" height="200"></canvas>
+        </div>
+        <div class="chart-box memory-box">
+            <canvas id="memoryChart" width="400" height="200"></canvas>
+        </div>
+        <div class="chart-box disk-box">
+            <canvas id="diskChart" width="400" height="200"></canvas>
+        </div>
+        <div class="chart-box battery-box">
+            <canvas id="batteryChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+    
+    <script>
+        const cpuCtx = document.getElementById('cpuChart').getContext('2d');
+        const memoryCtx = document.getElementById('memoryChart').getContext('2d');
+        const diskCtx = document.getElementById('diskChart').getContext('2d');
+        const batteryCtx = document.getElementById('batteryChart').getContext('2d');
+
+        const cpuChart = new Chart(cpuCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: 'CPU Usage (%)', data: [], borderColor: 'rgba(0,0,255)', borderWidth: 2, fill: false }] },
+            options: { scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+
+        const memoryChart = new Chart(memoryCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: 'Memory Usage (%)', data: [], borderColor: 'rgba(255,0,0)', borderWidth: 2, fill: false }] },
+            options: { scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+
+        const diskChart = new Chart(diskCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: 'Disk Usage (%)', data: [], borderColor: 'rgba(148,0,211)', borderWidth: 2, fill: false }] },
+            options: { scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+
+        const batteryChart = new Chart(batteryCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: 'Battery Usage (%)', data: [], borderColor: 'rgba(255,140,0)', borderWidth: 2, fill: false }] },
+            options: { scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+
+        async function updateCharts() {
+            try {
+                const response = await fetch('/data');
+                const data = await response.json();
+
+                const timestamps = data.map(item => {
+                    const date = new Date(item.timestamp * 1000);
+                    return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                });
+                const cpuUsages = data.map(item => item.cpu);
+                const memoryUsages = data.map(item => item.memory);
+                const diskUsages = data.map(item => item.disk);
+                const batteryUsages = data.map(item => item.battery);
+
+                cpuChart.data.labels = timestamps;
+                cpuChart.data.datasets[0].data = cpuUsages;
+                cpuChart.update();
+
+                memoryChart.data.labels = timestamps;
+                memoryChart.data.datasets[0].data = memoryUsages;
+                memoryChart.update();
+
+                diskChart.data.labels = timestamps;
+                diskChart.data.datasets[0].data = diskUsages;
+                diskChart.update();
+
+                batteryChart.data.labels = timestamps;
+                batteryChart.data.datasets[0].data = batteryUsages;
+                batteryChart.update();
+            } catch (err) {
+                console.error("Error fetching data: ", err);
+            }
+        }
+
+        setInterval(updateCharts, 30000);  // Update setiap 1 menit
+    </script>
+</body>
+</html>
