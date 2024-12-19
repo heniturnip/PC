@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    float: left;
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    float: right;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.hero {
+    background: url('https://media.istockphoto.com/id/2116411896/id/foto/ayah-muda-dan-putranya-dengan-kaos-merah-memeluk-bantal-hijau-di-toko-ritel-dengan-senyum.jpg?s=2048x2048&w=is&k=20&c=4e9SXISkM1gYuwvFfKWmS9duzkRAlrBaqNGalY8whbc=') no-repeat center center/cover;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000000;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffcc00;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #e6b800;
+}
+
+.produk, .fitur, .testimoni, .kontak {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.produk h2, .fitur h2, .testimoni h2, .kontak h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.produk-list, .fitur-list, .testimoni-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.produk-item, .fitur-item, .testimoni-item {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.produk-item:hover, .fitur-item:hover, .testimoni-item:hover {
+    transform: translateY(-10px);
+}
+
+.produk-item img, .fitur-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.produk-item h3, .fitur-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.produk-item p, .fitur-item p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.testimoni-item {
+    text-align: center;
+}
+
+.testimoni-item p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.testimoni-item h3 {
+    font-size: 16px;
+    color: #666;
+}
+
+.kontak-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.kontak-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.kontak-form input, .kontak-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 14px;
+}
