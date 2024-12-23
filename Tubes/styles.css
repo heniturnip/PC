@@ -69,38 +69,24 @@ header nav ul li a:hover {
     margin-bottom: 30px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #ffcc00;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background: #e6b800;
-}
-
-.produk, .fitur, .testimoni, .kontak {
-    padding: 50px 0;
+.produk, .testimoni, .kontak {
+    padding: 10px 0;
     background-color: #fff;
 }
 
-.produk h2, .fitur h2, .testimoni h2, .kontak h2 {
+.produk h2, .testimoni h2, .kontak h2 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 32px;
 }
 
-.produk-list, .fitur-list, .testimoni-list {
+.produk-list, .testimoni-list {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.produk-item, .fitur-item, .testimoni-item {
+.produk-item, .fitur-item, .pakaian-item, .testimoni-item {
     background: #f4f4f4;
     padding: 20px;
     border-radius: 5px;
@@ -110,25 +96,25 @@ header nav ul li a:hover {
     transition: transform 0.3s;
 }
 
-.produk-item:hover, .fitur-item:hover, .testimoni-item:hover {
+.produk-item:hover, .fitur-item:hover, .pakaian-item:hover, .testimoni-item:hover {
     transform: translateY(-10px);
 }
 
-.produk-item img, .fitur-item img {
+.produk-item img, .fitur-item img, .pakaian-item img {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
     border-radius: 5px;
 }
 
-.produk-item h3, .fitur-item h3 {
+.produk-item h3, .fitur-item h3, .pakaian-item h3 {
     font-size: 24px;
     margin-bottom: 10px;
     color: #333;
 }
 
-.produk-item p, .fitur-item p {
-    margin-bottom: 20px;
+.produk-item p, .fitur-item p, .pakaian-item p {
+    margin-bottom: 10px;
     color: #666;
 }
 
@@ -137,7 +123,7 @@ header nav ul li a:hover {
 }
 
 .testimoni-item p {
-    font-size: 18px;
+    font-size: 18px; 
     margin-bottom: 10px;
     color: #333;
 }
