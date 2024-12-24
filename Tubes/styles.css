@@ -69,12 +69,12 @@ header nav ul li a:hover {
     margin-bottom: 30px;
 }
 
-.produk, .testimoni, .kontak {
+.produk, .deskripsi, .testimoni, .kontak {
     padding: 10px 0;
     background-color: #fff;
 }
 
-.produk h2, .testimoni h2, .kontak h2 {
+.produk h2, .deskripsi, .testimoni h2, .kontak h2 {
     text-align: center;
     margin-bottom: 10px;
     font-size: 32px;
@@ -90,19 +90,31 @@ header nav ul li a:hover {
     background: #f4f4f4;
     padding: 20px;
     border-radius: 5px;
-    margin: 10px;
-    width: 30%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    width: 25%;
     transition: transform 0.3s;
+    background-color: aliceblue;
 }
 
 .produk-item:hover, .fitur-item:hover, .pakaian-item:hover, .testimoni-item:hover {
     transform: translateY(-10px);
 }
 
+.deskripsi img {
+    max-width: 100%;
+    height: 800px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: rgba(100, 173, 237, 0.727);
+    padding: 10px;
+}
+
 .produk-item img, .fitur-item img, .pakaian-item img {
     max-width: 100%;
-    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
     margin-bottom: 20px;
     border-radius: 5px;
 }
@@ -111,11 +123,20 @@ header nav ul li a:hover {
     font-size: 24px;
     margin-bottom: 10px;
     color: #333;
+    text-align: center;
+}
+
+.deskripsi p {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black;
+    text-align: justify;
 }
 
 .produk-item p, .fitur-item p, .pakaian-item p {
     margin-bottom: 10px;
-    color: #666;
+    color: black;
+    text-align: justify;
 }
 
 .testimoni-item {
@@ -154,14 +175,54 @@ header nav ul li a:hover {
     font-size: 16px;
 }
 
+footer p {
+    font-size: 14px;
+}
+
 footer {
     background: #333;
     color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 50px;
+    text-align: left;
+    padding: 0;
 }
 
-footer p {
-    font-size: 14px;
+.footer-container {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0;
+}
+
+.footer-left {
+    flex: 1;
+    padding-left: 0;
+}
+
+.footer-right {
+    text-align: right;
+    padding-right: 0;
+}
+
+.footer-left h3 {
+    margin-bottom: 10px;
+}
+
+.footer-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-left ul li {
+    margin-bottom: 5px;
+}
+
+.footer-left ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-left ul li a:hover {
+    color: #2f00ffcb;
 }
